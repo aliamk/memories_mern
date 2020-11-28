@@ -1,6 +1,6 @@
 import express from 'express'
 
-import { getPosts, createPost } from '../controllers/posts.js'
+import { getPosts, createPost, updatePost } from '../controllers/posts.js'
 
 const router = express.Router()
 
@@ -9,5 +9,8 @@ router.get('/', getPosts)
 
 // ROUTE 2: http://localhost:5000/...
 router.post('/', createPost)
+
+//  ROUTE 3: 
+router.patch('/:id', updatePost)
 
 export default router

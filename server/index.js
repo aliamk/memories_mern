@@ -17,3 +17,4 @@ app.use(cors())
 // ROUTE 1: http://localhost:5000/posts MUST BE POSITIONED AFTER CORS
 app.use('/posts', postRoutes)
 
+
