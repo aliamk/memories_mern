@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 // Create a Mongoose schema for consistent uniformity in all of the app's posts
 // Each post has to have these properties
-// tags is for the images that will be posted - the Base64 module we installed will convert the images to strings
+// selectedFile is for the images that will be posted - the Base64 module we installed will convert the images to strings
 const postSchema = mongoose.Schema({
     title: String,
     message: String,
