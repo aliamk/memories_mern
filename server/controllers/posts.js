@@ -27,13 +27,13 @@ export const createPost = async ( req, res ) => {
 export const updatePost = async ( req, res ) => {       
     // destructure id from params and rename to _id
     const { id: _id } = req.params
-    // the frontend sends req.body to the server 
+    // the frontend sends req.body to the server so we can check against it in Mongo below 
     const post = req.body 
     // Mongoose needs to check if the id exists in its DB
     if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send('No posts matching that id')  
     // If the id is valid, get model and run the find method, pass it the id, the post object and set it to new
-    const updatedPost = await PostMessage.findByIdAndUpdate(_id, post, { new: true })   
-    // Send the updated post to the front end
+    const updatedPost = await PostMessage.findByIdAndUpdate(_id, { ...post, _id }, { new: true })   
+    // Send the updated post to the frontend
     res.json(updatedPost)
 }
 

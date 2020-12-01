@@ -16,7 +16,7 @@ export default (posts = [], action) => {
         case UPDATE:
         // case LIKE:
             // action.payload represents the updated version of the post: if the post's id matches the new updated post's id, return the updated post, else return the old post
-            return posts.map((post) => (post._id === action.payload._id ? action.payload : post));
+            return posts.map((post) => post._id === action.payload._id ? action.payload : post);
         case DELETE:
             // return all posts except for the one whose ID doesn't match those in the action.payload
             return posts.filter((post) => post._id !== action.payload);

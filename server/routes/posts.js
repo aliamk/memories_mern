@@ -4,13 +4,13 @@ import { getPosts, createPost, updatePost, deletePost, likePost } from '../contr
 
 const router = express.Router()
 
-// ROUTE 1: http://localhost:5000/posts
+// ROUTE 1: http://localhost:PORT/posts
 router.get('/', getPosts)
 
-// ROUTE 2: http://localhost:5000/...
+// ROUTE 2: http://localhost:PORT/...
 router.post('/', createPost)
 
-//  ROUTE 3: 
+//  ROUTE 3: Edit / Update post
 router.patch('/:id', updatePost)
 
 // ROUTE 4:
