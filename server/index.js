@@ -24,17 +24,7 @@ const PORT = process.env.PORT;
 // Instruct app on how to connect to mongoose, what to do if connection is successful or unsuccessful
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
-    .catch((error) => console.log(error.message))
+    .catch((error) => console.log(error))
 
 // This is just to handle console errors
 mongoose.set('useFindAndModify', false)
-
-/* 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://USERNAME:<password>@cluster0.macoz.mongodb.net/<dbname>?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-}); */
