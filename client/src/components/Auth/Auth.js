@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import {Avatar, Button, Paper, Grid, Typography, Container} from '@material-ui/core'
-import {GoogleLogin} from 'react-google-login'
+import { useDispatch } from 'react-redux'
+import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core'
+import { GoogleLogin } from 'react-google-login'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import useStyles from './styles'
 import Input from './Input'
@@ -11,6 +12,7 @@ const Auth = () => {
     const classes = useStyles()
     const [showPassword, setShowPassword] = useState(false)
     const [isSignup, setIsSignup] = useState(false)    
+    const dispatch = useDispatch()
 
     const handleSubmit = () => {}
     const handleChange = () => {}    
@@ -21,9 +23,20 @@ const Auth = () => {
         handleShowPassword(false)
     }
     
-  const googleSuccess = async () => { };
+  const googleSuccess = async (res) => {
+    const result = res?.profileObj;      // optional chaining operator will return 'undefined' if there's no response instead of an error 
+    const token = res?.tokenId;
+    try {
+      dispatch({ type: 'AUTH', data: { result, token } });  // dispatch an action pass the payload
+    } catch (error) {
+      console.log(error);
+    }
+   };
 
-  const googleFailure = () => alert('Google Sign In was unsuccessful. Try again later');
+  const googleFailure = (error) => {
+      console.log(error)
+      alert('Google Sign In was unsuccessful. Try again later')
+    };
 
     return (
         <Container component="main" maxWidth="xs">
@@ -85,13 +98,6 @@ const Auth = () => {
 export default Auth
 
 
-
-    // const result = res?.profileObj;
-    // const token = res?.tokenId;
-    // try {
-    //   dispatch({ type: AUTH, data: { result, token } });
-
     //   history.push('/');
-    // } catch (error) {
-    //   console.log(error);
-    // }
+
+    
