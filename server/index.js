@@ -4,6 +4,8 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import postRoutes from './routes/posts.js'
+import userRoutes from './routes/users.js'
+
 
 // Initialise the app and run it as a function
 const app = express()
@@ -17,6 +19,7 @@ app.use(cors())
 
 // ROUTE 1: http://localhost:PORT/posts MUST BE POSITIONED AFTER CORS
 app.use('/posts', postRoutes)
+app.use('/user', userRoutes)
 
 // Connect the app's backend to mongoose in order to host the database: https://www.mongodb.com/cloud/atlas
 const PORT = process.env.PORT;
