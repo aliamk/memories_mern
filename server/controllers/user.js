@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs'       // Hash the passwords
 import jwt from 'jsonwebtoken'      // Store the passwords in the browser
-import User from '../models/user'
+import User from '../models/user.js'
 
 const secret = 'test';
 

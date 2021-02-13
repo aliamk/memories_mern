@@ -1,5 +1,7 @@
 import { AUTH, LOGOUT } from '../constants/actionTypes';
 
+// Get user profile from Actions > Auth.js and set it to localStorage
+
 const authReducer = (state = { authData: null }, action) => {
   switch (action.type) {
     case AUTH:
