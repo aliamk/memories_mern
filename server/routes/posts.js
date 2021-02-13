@@ -1,6 +1,7 @@
 import express from 'express'
 
 import { getPosts, createPost, updatePost, deletePost, likePost } from '../controllers/posts.js'
+import auth from '../middleware/auth.js'
 
 const router = express.Router()
 
@@ -8,15 +9,15 @@ const router = express.Router()
 router.get('/', getPosts)
 
 // ROUTE 2: http://localhost:PORT/...
-router.post('/', createPost)
+router.post('/', auth, createPost)
 
 //  ROUTE 3: Edit / Update post
-router.patch('/:id', updatePost)
+router.patch('/:id', auth, updatePost)
 
 // ROUTE 4:
-router.delete('/:id', deletePost)
+router.delete('/:id', auth, deletePost)
 
 // ROUTE 5:
-router.patch('/:id/likePost', likePost)
+router.patch('/:id/likePost', auth, likePost)
 
 export default router
