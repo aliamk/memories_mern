@@ -36,7 +36,7 @@ export const signup = async (req, res) => {
         // If user already exists, return an error message
         if (existingUser) return res.status(400).json({ message: "User already exists" });
         // If the user is new, check that the same password has been entered twice (if not, send error message)
-        if(password !== confirmPassword) return res.status(400).json({ "Passwords don't match"})
+        if(password !== confirmPassword) return res.status(400).json({ message: "Passwords don't match" })
         // If password and confirmPassword match, hash the password
         const hashedPassword = await bcrypt.hash(password, 12);
         // Create the new user

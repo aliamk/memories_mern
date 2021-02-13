@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 
 // Authorising users to like posts etc.  
-// If the middleware authorises then it calls next() which calls the like controller
+// If the middleware authorises the user then it calls next() which calls the like controller
 
 const secret = 'test';
 
