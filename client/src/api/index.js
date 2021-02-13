@@ -1,5 +1,8 @@
 import axios from 'axios'
 
+// Triggered by actions > auth.js
+// Index sends requests to the backend
+
 const API = axios.create({ baseURL: 'http://localhost:5000' })
 
 // API endpoints for the Posts
