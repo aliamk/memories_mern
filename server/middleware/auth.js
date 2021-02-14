@@ -8,7 +8,7 @@ const secret = 'test';
 const auth = async (req, res, next) => {
   try {
     // Get the token created for a user (token contains multiple properties, we only want the first)
-    const token = req.headers.authorization.split(" ")[1];
+    const token = req.headers.Authorization.split(" ")[1];
     // Check whether the token is Google's or not (google's tokens are longer than 500)
     const isCustomAuth = token.length < 500;
     // Store the data we want from the token within the variable 'decodedData'

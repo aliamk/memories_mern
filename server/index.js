@@ -19,7 +19,7 @@ app.use(cors())
 
 // ROUTE 1: http://localhost:PORT/posts MUST BE POSITIONED AFTER CORS
 app.use('/posts', postRoutes)
-app.use('/users', userRoutes)
+app.use('/user', userRoutes)
 
 // Connect the app's backend to mongoose in order to host the database: https://www.mongodb.com/cloud/atlas
 const PORT = process.env.PORT;
